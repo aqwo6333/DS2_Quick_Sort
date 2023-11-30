@@ -7,7 +7,7 @@
 int com = 0;
 int mov = 0;
 
-
+// partition í•¨ìˆ˜
 int partition(int list[], int left, int right) {
 	int pivot, temp;
 	int low, high;
@@ -34,7 +34,7 @@ int partition(int list[], int left, int right) {
 	return high;
 }
 
-
+// í€µ ì •ë ¬ í•¨ìˆ˜
 void quick_sort(int list[], int left, int right) {
 	if (left < right) {
 		int q = partition(list, left, right);
@@ -47,6 +47,7 @@ void quick_sort(int list[], int left, int right) {
 	}
 }
 
+// í€µ ì •ë ¬ í•¨ìˆ˜ì—ì„œ ì´ë™ íšŸìˆ˜ì™€ ë¹„êµ íšŸìˆ˜ë¥¼ ì¹´ìš´íŒ… í•  í•¨ìˆ˜
 void quick_sort_re(int list[], int left, int right) {
 	if (left < right) {
 		int q = partition(list, left, right);
@@ -61,7 +62,7 @@ typedef struct Range{
 	int right;
 } Range;
 
-// stackÀ» ÀÌ¿ëÇÏ¿© ¹Ýº¹ÀûÀ¸·Î quicksort ±¸Çö
+// ë°˜ë³µì  ë°©ë²•ìœ¼ë¡œ í€µì •ë ¬
 void quick_sort_iter(int list[], int left, int right, int isFirst) {
 	Range stack[MAX_STACK];
 	int top = -1;
@@ -93,14 +94,14 @@ int main(int argc, char* argv[]) {
 	int list[MAX];
 	for (int i = 0; i < n; i++)
 		list[i] = rand() % 100;
-	// ±âº» ÄüÁ¤·Ä
+	// ê¸°ë³¸ í€µì •ë ¬(ìž¬ê·€)
 	printf("Original List \n");
 	for (int i = 0; i < n; i++)
 		printf("%d ", list[i]);
 	printf("\n\nQuick Sort\n");
 	quick_sort(list, 0, (n - 1));
 	
-	// ÀÌµ¿È½¼ö¿Í ºñ±³È½½¬¸¦ ±¸ÇÏ±â À§ÇÔ
+	// ì´ë™íšŸìˆ˜ì™€ ë¹„êµíšŸì‰¬ë¥¼ êµ¬í•˜ê¸° ìœ„í•¨
 	for (int t = 0; t < (n-1); t++) {
 		for (int i = 0; i < n; i++) {
 			list[i] = rand() % 100;
@@ -110,6 +111,7 @@ int main(int argc, char* argv[]) {
 	printf("Average Move Count : %d \n", (mov / n));
 	printf("Average Compare Count : %d \n \n \n", (com / n));
 
+	// ë°˜ë³µ í€µì •ë ¬
 	printf("Iterate Quick Sort \n");
 	int list_i[MAX];
 	for (int i = 0; i < n; i++)
